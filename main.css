@@ -1,0 +1,603 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ /* Scrollbar Styling for Webkit Browsers (Chrome, Safari, Edge) */
+ ::-webkit-scrollbar {
+    width: 12px; 
+}
+
+::-webkit-scrollbar-track {
+    background-color: #cececeaf; /* Background color */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #801b1b; 
+    border-radius: 10px; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #cececeaf; 
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thick;
+    scrollbar-color: #801b1b #cececeaf;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    background-color: #801b1b;
+    color: rgb(0, 0, 0);
+    overflow: auto;
+}
+
+.logo img {
+    height: 110px;
+    width: auto;
+    display: inline-block;
+    margin-left: 15px;
+    padding: 10px;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    margin-right: 10px;
+}
+
+.navbar ul li {
+    margin: 0 30px;
+}
+
+.navbar ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.5s;
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 7px; /* Adds padding under for the border bottom line */
+}
+
+.navbar ul li a:hover {
+    color: #a18c8cd2;
+}
+
+.navbar ul li a::after {
+    content: ''; /* Creates the underline */
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 4px;
+    background-color: #a18c8cd2;
+    transition: width 0.2s ease-in-out; /* Smooth animation */
+    border-radius: 10px; /* Makes the line underneath rounded*/
+}
+
+.navbar ul li a:hover::after {
+    width: 100%; /* Expands the underline from left to right */
+}
+
+.Hero-Background {
+    position: relative;
+    background: black;
+    color: aliceblue;
+    text-align: center;
+    overflow: hidden;
+    min-height: 400px; 
+}
+
+.Hero-Img {
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.Hero-Text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    z-index: 2;
+    text-align: center;
+    font-size: 20px;
+}
+
+.Hero-Button {
+    margin-top: 45px;
+    padding: 13px 23px;
+    font-size: 23px;
+    color: rgb(255, 255, 255);
+    background-color: #801b1b;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer; /* Makes an apperence based off when the pointer is above the button*/
+    font-weight: bolder;
+    transition: background-color 0.3s ease, color 0.3s ease, t;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+
+}
+
+.Hero-Button:hover {
+    background-color: #333;
+    color: #ffffff;
+    transform: translateY(-5px); /* Moves the button 5px upward */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* Makes the shadow more prominent */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1118px) {
+    .Hero-Text {
+        font-size: 14px; /* Slightly smaller font size */
+    }
+
+    .Hero-Button {
+        padding: 10px 20px;
+        font-size: 14px; /* Smaller button size */
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 706px) {
+    .Hero-Text {
+        font-size: 10px; /* Further reduce font size for smaller screens */
+        line-height: 1.4; /* Improve text readability */
+    }
+
+    .Hero-Button {
+        padding: 8px 18px;
+        font-size: 12px; /* Compact button size */
+        margin-top: 10px;
+    }
+}
+
+.Section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 80px auto;
+    padding: 20px;
+}
+
+.Section-Header,
+.Section-Image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.Section-Header {
+    color: #333;
+    text-align: left;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.Section-Header p {
+    color: #333;
+    margin-top: 20px;
+    font-size: 17px;
+    line-height: 2;
+}
+
+.Section-Image {
+    text-align: center;
+}
+
+.Section-Image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 908px) {
+    .Section-Wrapper {
+        flex-direction: column;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .Section-Header,
+    .Section-Image {
+        flex: none;
+        width: 100%;
+        text-align: center;
+        font-size: 90%;
+        
+    }
+    .Section-Header p{
+        font-size: 90%;
+    }
+    .Section{
+        gap: 40px;
+        margin: 40px auto;
+    }
+}
+
+.Section-Button{
+    margin-top: 25px;
+    padding: 12px 27px;
+    font-size: 18px;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    background-color: #801b1b;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease, t;
+    box-shadow: 0px 4px 6px rgba(36, 19, 19, 0.3); /* Adds shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+
+}
+
+.Section-Button:hover {
+    background-color: #333;
+    color: #ffffff;
+    transform: translateY(-5px); /* Moves the button 5px upward */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* Makes the shadow more prominent */
+}
+
+.Services { 
+    display: block;
+    flex-wrap: wrap;
+    background-color: #000000;
+}
+
+.Services > div:nth-child(1) {
+    background-color: #a12121;
+}
+
+.Services > div:nth-child(2) {
+    background-color: #801b1b; 
+}
+
+.Services > div:nth-child(3) {
+    background-color: #5f0f0f; /* Green color for the third row */
+}
+
+.Services > div:hover {
+    background-color: #313030; /* Gray color on hover */
+    transition: background-color 0.5s ease; /* Smooth transition effect */
+}
+
+.Services h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #e9e7e7;
+    margin-bottom: 10px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.Services h3 {
+    font-size: 25px;
+    font-weight: bold;
+    margin: 10px 0;
+    color: #e9e7e7;
+    text-align: center;
+    font-style: italic;
+}
+
+.Services p {
+    font-size: 15px;
+    color: #e9e7e7;
+    text-align: center;
+    margin: 0 200px;
+    padding: 10px;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 825px) {
+    .Services > div {
+        width: calc(100%); /* Full-width cards on small screens */
+    }
+    .Services p{
+        margin: 0 100px;
+    }
+}
+
+@media (max-width: 625px) {
+    .Services > div {
+        width: calc(100%); /* Full-width cards on small screens */
+    }
+    .Services p{
+        margin: 0 50px;
+    }
+}
+
+@media (max-width: 325px) {
+    .Services > div {
+        width: calc(100%); /* Full-width cards on small screens */
+    }
+    .Services p{
+        margin: 0 20px;
+    }
+}
+
+.testimonial-text{
+    text-align: center;
+    padding-top: 80px;
+    background-color: #ffffff;
+}
+
+.testimonial-text h1{
+    color: #444;
+    font-size: 35px;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+.testimonial-text p{
+    font-size: 17px;
+    color: #333;
+    margin: 0 200px;
+    line-height: 2;
+}
+
+.testimonial-Image{
+    text-align: center;
+    filter: opacity(100%);
+}
+
+.testimonial-Image img{
+    height: 90px;
+    width: auto;
+    margin-top: 100px;
+}
+
+@media (max-width: 1125px) {
+    .testimonial-text p{
+        margin: 0 10px;
+    }
+}
+.testimonial-slider {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+.testimonial-slider-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.testimonial {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+}
+
+.testimonial p {
+    font-size: 20px;
+    line-height: 1.5;
+    color: #333;
+    font-style: italic;
+}
+
+.testimonial h3 {
+    margin-top: 15px;
+    font-size: 25px;
+    color: #801b1b;
+    margin-bottom: 10px;
+}
+
+.testimonial-button{
+    display: block; /* Makes the button a block element */
+    margin: 0 auto; /* Centers the button horizontally */
+    text-align: center; /* Optional: Centers the text inside the button */
+    border-radius: 15px;
+    background-color: #801b1b;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 80px;
+    font-size: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease, t;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+}
+
+.testimonial-button:hover {
+    background-color: #333;
+    color: #ffffff;
+    transform: translateY(-5px); /* Moves the button 5px upward */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* Makes the shadow more prominent */
+}
+
+
+.map-container {
+    flex: 1; /* Allow map container to take available space */
+    max-width: 45%; 
+    padding: 60px;
+}
+
+iframe {
+    border: 0;
+    border-radius: 8px;
+    width: 100%;
+    height: 500px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+   
+}
+
+.map-section {
+    display: flex;
+    justify-content: space-between; /* This aligns the map and text in a row */
+    align-items: left; /* This vertically aligns the content */
+    background-color: #333;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.map-text {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    text-align: left;
+    flex: 1;
+    padding: 90px 80px 30px 80px;
+    background-color: #333; /* Add a subtle background color */
+}
+
+.map-text label {
+    display: flex;
+    flex-direction: column;
+    margin: 6px;
+}
+
+.map-text input {
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+    width: 100%;
+}
+
+.map-text h1 {
+    opacity: 100%;
+    color: #ffffff;
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+.map-text h4{
+    font-size: 15px;
+    opacity: 70%;
+    color: #ffffff;
+    padding-bottom: 5px ;
+    font-weight: lighter;
+}
+
+.map-text p{
+    font-size: 18px;
+    color: #ffffff;
+    padding-bottom: 10px;
+    font-style: italic;
+}
+
+.map-text input:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #801b1b; /* Change border color on focus */
+    box-shadow: 0px 0px 10px rgba(255, 30, 0, 0.5); /* Add focus shadow */
+}
+
+.map-text form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;;
+}
+
+.map-text textarea:focus {
+    outline: none; /* Remove default focus outline */
+    border-color: #801b1b; /* Change border color on focus */
+    box-shadow: 0px 0px 10px rgba(255, 30, 0, 0.5); /* Add focus shadow */
+}
+
+.map-text button{
+    display: block; /* Makes the button a block element */
+    margin: 0 auto; /* Centers the button horizontally */
+    text-align: center; /* Optional: Centers the text inside the button */
+    border-radius: 15px;
+    background-color: #801b1b;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 80px;
+    font-size: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease, t;
+    font-weight: bold;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Adds shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transform and shadow */
+}
+
+.map-text button:hover {
+    background-color: #333;
+    color: #ffffff;
+    transform: translateY(-5px); /* Moves the button 5px upward */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.5); /* Makes the shadow more prominent */
+}
+
+@media (max-width: 908px) {
+    .map-section {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .map-container {
+        max-width: 100%; /* Full width on smaller screens */
+        width: 90%;
+        padding:  0px 40px 50px 40px;
+    }
+
+    .map-text {
+        max-width: 100%;
+        padding: 90px 40px 00px 40px;
+        width: 90%;
+    }
+    .map-text button{
+        margin: 0px;
+
+    }
+}
+
+@media (max-width: 668px) {
+    .map-section {
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+    }
+
+    .map-container {
+        max-width: 100%; /* Full width on smaller screens */
+        width: 100%;
+        padding:  0px 40px 50px 40px;;
+    }
+
+    .map-text {
+        max-width: 100%;
+        padding: 90px 40px 0px 40px;
+        width: 100%;
+    }
+    .map-text button{
+        margin: 0px;
+
+    }
+    iframe{
+        height: 300px;
+    }
+}
+
+footer {
+    padding: 8px;
+    text-align: center;
+    background-color: #801b1b;
+    color: white;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    font-size: small;
+    z-index: 13;
+}
+
+
